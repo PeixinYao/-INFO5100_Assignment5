@@ -5,6 +5,8 @@
  */
 package Business.Restaurant;
 
+import Business.WorkQueue.WorkQueue;
+
 /**
  *
  * @author harold
@@ -12,6 +14,15 @@ package Business.Restaurant;
 public class Restaurant {
     String name;
     Menu menu;
+    WorkQueue workQueue;
+
+    public WorkQueue getWorkQueue() {
+        return workQueue;
+    }
+
+    public void setWorkQueue(WorkQueue workQueue) {
+        this.workQueue = workQueue;
+    }
 
     public String getName() {
         return name;

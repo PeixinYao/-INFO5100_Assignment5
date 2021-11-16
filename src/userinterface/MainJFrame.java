@@ -150,6 +150,7 @@ public class MainJFrame extends javax.swing.JFrame {
                  layout.next(container);
            }
        }
+         logoutJButton.setEnabled(true);
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed

@@ -5,9 +5,11 @@
  */
 package userinterface.SystemAdminWorkArea;
 
+import Business.Customer.CustomerDirectory;
 import Business.EcoSystem;
 
 import Business.Organization;
+import Business.WorkQueue.WorkQueue;
 import java.awt.CardLayout;
 import java.util.ArrayList;
 import javax.swing.JPanel;
@@ -152,7 +154,9 @@ public class SystemAdminWorkAreaJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnManageNetworkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageNetworkActionPerformed
-       
+
+        CustomerDirectory customerDirectory=ecosystem.getCustomerDirectory();
+        WorkQueue workQueue=ecosystem.getWorkQueue();
     }//GEN-LAST:event_btnManageNetworkActionPerformed
 
     private void btnManageEnterpriseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnManageEnterpriseActionPerformed
