@@ -3,6 +3,9 @@
 package userinterface.RestaurantAdminRole;
 
 
+import Business.EcoSystem;
+import Business.Restaurant.Menu;
+import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -14,12 +17,14 @@ import javax.swing.JPanel;
 public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
     JPanel userProcessContainer;
-    UserAccount account;
+    EcoSystem system;
+    Restaurant restaurant;
     /** Creates new form AdminWorkAreaJPanel */
-    public AdminWorkAreaJPanel(JPanel userProcessContainer,UserAccount account) {
+    public AdminWorkAreaJPanel(JPanel userProcessContainer,Restaurant restaurant,EcoSystem system) {
         initComponents();
         this.userProcessContainer = userProcessContainer;
-         this.account=account;
+        this.system=system;
+        this.restaurant=restaurant;
         //valueLabel.setText();
     }
     
@@ -83,10 +88,22 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageEmployeeJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageEmployeeJButtonActionPerformed
 
+        if(restaurant.getMenu()==null){
+            Menu newmenu=new Menu();
+            restaurant.setMenu(newmenu);
+        }
+        ManageMenuJPanel mm=new ManageMenuJPanel(userProcessContainer,restaurant.getMenu());
+        userProcessContainer.add("ManageSupplierAdministrative", mm);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_manageEmployeeJButtonActionPerformed
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
 
+        ManageOrderJPanel mo=new ManageOrderJPanel(userProcessContainer,restaurant.getWorkQueue());
+                userProcessContainer.add("ManageSupplierAdministrative", mo);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
     }//GEN-LAST:event_manageOrganizationJButtonActionPerformed
     
     

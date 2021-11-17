@@ -4,6 +4,7 @@
  */
 package userinterface.CustomerRole;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
 
 import Business.UserAccount.UserAccount;
@@ -21,15 +22,17 @@ public class CustomerAreaJPanel extends javax.swing.JPanel {
     private JPanel userProcessContainer;
 
     private UserAccount userAccount;
+    private EcoSystem system;
+    private Customer customer;
     /**
      * Creates new form DoctorWorkAreaJPanel
      */
-    public CustomerAreaJPanel(JPanel userProcessContainer, UserAccount account) {
+    public CustomerAreaJPanel(JPanel userProcessContainer, Customer customer,EcoSystem system) {
         initComponents();
         
         this.userProcessContainer = userProcessContainer;
       
-        this.userAccount = account;
+     
         //valueLabel.setText(enterprise.getName());
         populateRequestTable();
     }

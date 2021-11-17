@@ -32,11 +32,11 @@ public class ConfigureASystem {
         //create user account
         
         
-        Employee employee = system.getEmployeeDirectory().createEmployee("RRH");
-        UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", employee, new SystemAdminRole());
-        UserAccount ur = system.getUserAccountDirectory().createUserAccount("restaurant1", "restaurant1", employee, new AdminRole());
-        UserAccount uc = system.getUserAccountDirectory().createUserAccount("customer1", "customer1", employee, new CustomerRole());
-        UserAccount ud = system.getUserAccountDirectory().createUserAccount("deliveryMan1", "deliveryMan1", employee, new DeliverManRole());
+      
+        UserAccount ua = system.getUserAccountDirectory().createUserAccount("sysadmin", "sysadmin", new SystemAdminRole());
+        UserAccount ur1 = system.getUserAccountDirectory().createUserAccount("restaurant1", "restaurant1", new AdminRole());
+        UserAccount uc1 = system.getUserAccountDirectory().createUserAccount("customer1", "customer1", new CustomerRole());
+        UserAccount ud1 = system.getUserAccountDirectory().createUserAccount("deliveryMan1", "deliveryMan1", new DeliverManRole());
         Customer c1=system.getCustomerDirectory().addCustomer();
         c1.setName("customer1");
         DeliveryMan d1=system.getDeliveryManDirectory().addDeliveryMan();

@@ -4,6 +4,7 @@
  */
 package Business.Role;
 
+import Business.Customer.Customer;
 import Business.EcoSystem;
 
 import Business.Organization;
@@ -19,8 +20,11 @@ public class CustomerRole extends Role{
 
     
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new CustomerAreaJPanel(userProcessContainer, account);
+          for(Customer customer:business.getCustomerDirectory().getCustomerDirectory()){
+            if(customer.getName().equals(account.getUsername())){
+                return new CustomerAreaJPanel(userProcessContainer,customer,business);
+            }
+        }
+       return null;
     }
-    
-    
 }

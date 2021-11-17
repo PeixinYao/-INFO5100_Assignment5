@@ -72,5 +72,7 @@ public class WorkRequest {
         this.status = status;
     }
 
-
+    public String toString(){
+        return this.customer.getName();
+    }
 }

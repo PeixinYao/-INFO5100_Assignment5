@@ -30,7 +30,7 @@ public class CustomerDirectory {
         customerDirectory.add(c);
         return c;
     }
-    public void removeDeliveryMan(Customer c) {
+    public void removeCustomer(Customer c) {
         customerDirectory.remove(c);
     }
        
