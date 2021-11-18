@@ -25,7 +25,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
         this.userProcessContainer = userProcessContainer;
         this.system=system;
         this.restaurant=restaurant;
-        //valueLabel.setText();
+        valueLabel.setText(restaurant.getName());
     }
     
     /** This method is called from within the constructor to
@@ -36,6 +36,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabel1 = new javax.swing.JLabel();
         userJButton = new javax.swing.JButton();
         manageEmployeeJButton = new javax.swing.JButton();
@@ -100,7 +101,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
 
     private void manageOrganizationJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manageOrganizationJButtonActionPerformed
 
-        ManageOrderJPanel mo=new ManageOrderJPanel(userProcessContainer,restaurant.getWorkQueue());
+        ManageOrderJPanel mo=new ManageOrderJPanel(userProcessContainer,restaurant.getWorkQueue(),system);
                 userProcessContainer.add("ManageSupplierAdministrative", mo);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
@@ -108,6 +109,7 @@ public class AdminWorkAreaJPanel extends javax.swing.JPanel {
     
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JLabel enterpriseLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JButton manageEmployeeJButton;

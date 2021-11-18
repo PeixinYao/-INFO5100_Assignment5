@@ -30,4 +30,7 @@ public class DeliveryMan {
     public void setWorkQueue(WorkQueue workQueue) {
         this.workQueue = workQueue;
     }
+    public String  toString(){
+        return  name;
+    }
 }

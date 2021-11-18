@@ -5,6 +5,7 @@
  */
 package Business.Role;
 
+import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import Business.UserAccount.UserAccount;
 import javax.swing.JPanel;
@@ -18,7 +19,12 @@ public class DeliverManRole extends Role {
 
     @Override
     public JPanel createWorkArea(JPanel userProcessContainer, UserAccount account, EcoSystem business) {
-        return new DeliveryManWorkAreaJPanel(userProcessContainer,account,business);//To change body of generated methods, choose Tools | Templates.
+            for(DeliveryMan deliveryMan:business.getDeliveryManDirectory().getDeliveryManDirectory()){
+            if(deliveryMan.getName().equals(account.getUsername())){
+                return new DeliveryManWorkAreaJPanel(userProcessContainer,deliveryMan,business);
+            }
+        }
+       return null;//To change body of generated methods, choose Tools | Templates.
     }
     
 }

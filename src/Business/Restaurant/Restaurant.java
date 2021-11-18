@@ -39,5 +39,7 @@ public class Restaurant {
     public void setMenu(Menu menu) {
         this.menu = menu;
     }
-    
+    public String toString(){
+        return name;
+    }
 }
