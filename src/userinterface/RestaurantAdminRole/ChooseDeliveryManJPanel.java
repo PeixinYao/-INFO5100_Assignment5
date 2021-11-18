@@ -8,6 +8,7 @@ package userinterface.RestaurantAdminRole;
 import Business.DeliveryMan.DeliveryMan;
 import Business.EcoSystem;
 import Business.Restaurant.Food;
+import Business.Restaurant.Restaurant;
 import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
@@ -28,6 +29,7 @@ public class ChooseDeliveryManJPanel extends javax.swing.JPanel {
          WorkRequest workRequest;
          EcoSystem system;
          WorkQueue workQueue;
+         Restaurant restaurant;
     public ChooseDeliveryManJPanel(JPanel userProcessContainer,WorkRequest workRequest,EcoSystem system,WorkQueue workQueue) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
@@ -132,7 +134,7 @@ public class ChooseDeliveryManJPanel extends javax.swing.JPanel {
         }
         d.getWorkQueue().addWorkRequest(workRequest);
         JOptionPane.showMessageDialog(null, "choose deliverMan successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
-        ManageOrderJPanel mo=new ManageOrderJPanel(userProcessContainer,workQueue,system);
+        ManageOrderJPanel mo=new ManageOrderJPanel(userProcessContainer,workQueue,system,restaurant);
          userProcessContainer.add("ManageSupplierAdministrative", mo);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);

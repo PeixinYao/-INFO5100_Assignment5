@@ -5,7 +5,12 @@
  */
 package userinterface.RestaurantAdminRole;
 
+import Business.EcoSystem;
 import Business.Restaurant.Food;
+import Business.Restaurant.Menu;
+import Business.Restaurant.Restaurant;
+import java.awt.CardLayout;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -19,10 +24,16 @@ public class ModifyFoodJPanel extends javax.swing.JPanel {
      */
     JPanel userProcessContainer;
     Food food;
-    public ModifyFoodJPanel(JPanel userProcessContainer,Food food) {
+        Menu menu;
+         EcoSystem system;
+    Restaurant restaurant;
+    public ModifyFoodJPanel(JPanel userProcessContainer,Food food,Menu menu,Restaurant restaurant,EcoSystem system) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.food=food;
+            this.menu=menu;
+        this.restaurant=restaurant;
+        this.system=system;
         jTextField1.setText(food.getName());
         jTextField2.setText(String.valueOf(food.getPrice()));
     }
@@ -42,6 +53,7 @@ public class ModifyFoodJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jTextField1 = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
 
         jLabel3.setText("Food price:");
 
@@ -63,6 +75,13 @@ public class ModifyFoodJPanel extends javax.swing.JPanel {
 
         jLabel2.setText("Food name:");
 
+        jButton2.setText("back");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -82,15 +101,22 @@ public class ModifyFoodJPanel extends javax.swing.JPanel {
                 .addComponent(jButton1)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(343, 343, 343)
+                .addGap(65, 65, 65)
+                .addComponent(jButton2)
+                .addGap(181, 181, 181)
                 .addComponent(jLabel1)
-                .addContainerGap(388, Short.MAX_VALUE))
+                .addContainerGap(410, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addComponent(jLabel1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(40, 40, 40)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jButton2)))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -111,15 +137,25 @@ public class ModifyFoodJPanel extends javax.swing.JPanel {
         String foodprice=jTextField2.getText();
        food.setName(foodname);
        food.setPrice(Double.parseDouble(foodprice));
+             JOptionPane.showMessageDialog(null, "modify food successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+
+        ManageMenuJPanel mm=new ManageMenuJPanel(userProcessContainer,menu,restaurant,system);
+        userProcessContainer.add("ManageSupplierAdministrative", mm);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

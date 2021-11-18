@@ -6,8 +6,10 @@
 package userinterface.RestaurantAdminRole;
 
 import Business.Customer.Customer;
+import Business.EcoSystem;
 import Business.Restaurant.Food;
 import Business.Restaurant.Menu;
+import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -25,10 +27,14 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
      */
        JPanel userProcessContainer;
        Menu menu;
-    public ManageMenuJPanel(JPanel userProcessContainer,Menu menu) {
+         EcoSystem system;
+    Restaurant restaurant;
+    public ManageMenuJPanel(JPanel userProcessContainer,Menu menu,Restaurant restaurant,EcoSystem system) {
         initComponents();
         this.userProcessContainer=userProcessContainer;
         this.menu=menu;
+        this.restaurant=restaurant;
+        this.system=system;
               refreshTable();
     }
   public void refreshTable(){
@@ -66,6 +72,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         jButton1 = new javax.swing.JButton();
         delete = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -114,12 +121,21 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             }
         });
 
+        jButton3.setText("back");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(339, 339, 339)
+                .addGap(23, 23, 23)
+                .addComponent(jButton3)
+                .addGap(197, 197, 197)
                 .addComponent(jLabel1)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
@@ -148,8 +164,10 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(jLabel1)
-                .addGap(13, 13, 13)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel1)
+                    .addComponent(jButton3))
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -178,6 +196,7 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
         Food food=menu.addFood();
         food.setName(foodname);
         food.setPrice(Double.parseDouble(foodprice));
+        JOptionPane.showMessageDialog(null, "add food successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
         refreshTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -200,17 +219,26 @@ public class ManageMenuJPanel extends javax.swing.JPanel {
             return;
         }
         Food f = (Food) jTable1.getValueAt(row, 0);
-         ModifyFoodJPanel mf=new ModifyFoodJPanel(userProcessContainer,f);
+         ModifyFoodJPanel mf=new ModifyFoodJPanel(userProcessContainer,f,menu,restaurant,system);
         userProcessContainer.add("ManageSupplierAdministrative", mf);
         CardLayout layout = (CardLayout) userProcessContainer.getLayout();
         layout.next(userProcessContainer);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    AdminWorkAreaJPanel aw=new AdminWorkAreaJPanel(userProcessContainer,restaurant,system);
+     userProcessContainer.add("ManageSupplierAdministrative", aw);
+        CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+        layout.next(userProcessContainer);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton delete;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
