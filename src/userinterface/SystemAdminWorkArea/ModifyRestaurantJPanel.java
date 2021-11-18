@@ -8,6 +8,7 @@ package userinterface.SystemAdminWorkArea;
 import Business.DeliveryMan.DeliveryMan;
 import Business.Restaurant.Restaurant;
 import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -120,6 +121,7 @@ public class ModifyRestaurantJPanel extends javax.swing.JPanel {
         userAccount.setUsername(usernane);
         userAccount.setPassword(password);
         restaurant.setName(usernane);
+           JOptionPane.showMessageDialog(null, "modify restaurant successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

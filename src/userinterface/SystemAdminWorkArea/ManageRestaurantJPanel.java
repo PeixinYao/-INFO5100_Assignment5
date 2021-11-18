@@ -179,6 +179,7 @@ public class ManageRestaurantJPanel extends javax.swing.JPanel {
         for(Restaurant restaurant:restaurantDirectory.getRestaurantList()){
             if(restaurant.getName().equals(u.getUsername())){
                 restaurantDirectory.removerRstaurant(restaurant);
+                  JOptionPane.showMessageDialog(null, "delete restaurant successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
             }
         }
         refreshTable();

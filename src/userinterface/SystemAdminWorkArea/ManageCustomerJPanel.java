@@ -160,6 +160,7 @@ public class ManageCustomerJPanel extends javax.swing.JPanel {
         for(Customer customer:customerDirectory.getCustomerDirectory()){
             if(customer.getName().equals(u.getUsername())){
                 customerDirectory.removeCustomer(customer);
+                JOptionPane.showMessageDialog(null, "delete customer successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
             }
         }
         refreshTable();

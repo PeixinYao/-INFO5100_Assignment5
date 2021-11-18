@@ -125,7 +125,7 @@ public class CreateRestaurantJPanel extends javax.swing.JPanel {
         ur = userAccountDirectory.createUserAccount(usernane, password,  new AdminRole());
         Restaurant restaurant=restaurantDirectory.addRestaurant();
         restaurant.setName(usernane);
-        JOptionPane.showMessageDialog(null, "add deliveryMan successfully!!", "svaing", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "add restaurant successfully!!", "svaing", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

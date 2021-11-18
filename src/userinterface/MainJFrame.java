@@ -141,16 +141,20 @@ public class MainJFrame extends javax.swing.JFrame {
       String userName=userNameJTextField.getText();
        String password=passwordField.getText();
        UserAccountDirectory userAccountDirectory=system.getUserAccountDirectory();
+       int i=0;
        for(UserAccount userAccount:userAccountDirectory.getUserAccountList()){
            if(userName.equals(userAccount.getUsername())&&password.equals(userAccount.getPassword())){
+               i++;
                Role role=userAccount.getRole();
                JPanel workAreaJPanel=role.createWorkArea(container, userAccount, system);
                container.add("workAreaJPanel", workAreaJPanel);
                  CardLayout layout = (CardLayout) container.getLayout();
                  layout.next(container);
+                 logoutJButton.setEnabled(true);
            }
        }
-         logoutJButton.setEnabled(true);
+       if(i==0) JOptionPane.showMessageDialog(null, "username or password is not correct!!", "Warning", JOptionPane.WARNING_MESSAGE);
+         
     }//GEN-LAST:event_loginJButtonActionPerformed
 
     private void logoutJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutJButtonActionPerformed

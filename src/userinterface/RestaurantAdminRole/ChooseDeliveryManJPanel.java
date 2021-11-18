@@ -127,6 +127,9 @@ public class ChooseDeliveryManJPanel extends javax.swing.JPanel {
         DeliveryMan d = (DeliveryMan) jTable1.getValueAt(row, 0);
         workRequest.setDeliverMan(d);
         workRequest.setStatus("deliveryMan deliverying");
+        if(d.getWorkQueue()==null){
+            d.setWorkQueue(new WorkQueue());
+        }
         d.getWorkQueue().addWorkRequest(workRequest);
         JOptionPane.showMessageDialog(null, "choose deliverMan successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
         ManageOrderJPanel mo=new ManageOrderJPanel(userProcessContainer,workQueue,system);

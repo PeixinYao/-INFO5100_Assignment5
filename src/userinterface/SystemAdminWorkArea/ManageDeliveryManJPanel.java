@@ -163,6 +163,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
                 userProcessContainer.add("ModifyCustomerJPanel", mc);
                 CardLayout layout = (CardLayout) userProcessContainer.getLayout();
                 layout.next(userProcessContainer);
+                
             }
         }
     }//GEN-LAST:event_jButton2ActionPerformed
@@ -179,6 +180,7 @@ public class ManageDeliveryManJPanel extends javax.swing.JPanel {
         for(DeliveryMan deliveryMan:deliveryManDirectory.getDeliveryManDirectory()){
             if(deliveryMan.getName().equals(u.getUsername())){
                 deliveryManDirectory.removeDeliveryMan(deliveryMan);
+                  JOptionPane.showMessageDialog(null, "delete deliveryMan successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
             }
         }
         refreshTable();

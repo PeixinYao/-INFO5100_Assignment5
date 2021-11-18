@@ -7,6 +7,7 @@ package userinterface.SystemAdminWorkArea;
 
 import Business.Customer.Customer;
 import Business.UserAccount.UserAccount;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -120,6 +121,7 @@ public class ModifyCustomerJPanel extends javax.swing.JPanel {
         userAccount.setUsername(usernane);
         userAccount.setPassword(password);
         customer.setName(usernane);
+          JOptionPane.showMessageDialog(null, "modify customer successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
     }//GEN-LAST:event_jButton1ActionPerformed
 
 

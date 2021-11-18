@@ -9,6 +9,7 @@ import Business.Customer.Customer;
 import Business.EcoSystem;
 import Business.Restaurant.Food;
 import Business.Restaurant.Restaurant;
+import Business.WorkQueue.WorkQueue;
 import Business.WorkQueue.WorkRequest;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
@@ -129,7 +130,13 @@ public class ChooseFoodJPanel extends javax.swing.JPanel {
         workRequest.setCustomer(customer);
         workRequest.setRestaurant(restaurant);
         workRequest.setStatus("customer order");
+        if(customer.getWorkQueue()==null){
+            customer.setWorkQueue(new WorkQueue());
+        }
        customer.getWorkQueue().addWorkRequest(workRequest);
+       if(restaurant.getWorkQueue()==null){
+           restaurant.setWorkQueue(new WorkQueue());
+       }
        restaurant.getWorkQueue().addWorkRequest(workRequest);
        JOptionPane.showMessageDialog(null, "Customer order successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
        CustomerAreaJPanel cr=new CustomerAreaJPanel(userProcessContainer,customer,system);

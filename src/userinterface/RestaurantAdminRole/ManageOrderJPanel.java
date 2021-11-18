@@ -168,6 +168,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         }
         WorkRequest w = (WorkRequest) jTable1.getValueAt(row, 0);
         w.setStatus("restaurant accept order");
+        JOptionPane.showMessageDialog(null, "accept order successfully!!", "Warning", JOptionPane.WARNING_MESSAGE);
         refreshTable();
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -180,6 +181,7 @@ public class ManageOrderJPanel extends javax.swing.JPanel {
         }
         WorkRequest w = (WorkRequest) jTable1.getValueAt(row, 0);
         w.setStatus("restaurant not accept order");
+         JOptionPane.showMessageDialog(null, "refuse to accept order !!", "Warning", JOptionPane.WARNING_MESSAGE);
         refreshTable();
     }//GEN-LAST:event_jButton2ActionPerformed
 
